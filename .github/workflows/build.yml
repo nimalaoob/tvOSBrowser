@@ -1,10 +1,10 @@
-name: Build tvOSBrowser
+name: Check Project
 
 on:
   workflow_dispatch:
 
 jobs:
-  build:
+  check:
     runs-on: macos-latest
 
     steps:
@@ -15,12 +15,3 @@ jobs:
       run: |
         ls -la
         find . -name "*.xcodeproj"
-
-    - name: Build
-      run: |
-        xcodebuild \
-        -project xxx.xcodeproj \
-        -scheme xxx \
-        -sdk appletvos \
-        -configuration Release \
-        build
