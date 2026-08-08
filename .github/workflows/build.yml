@@ -18,4 +18,5 @@ jobs:
         -scheme Browser \
         -sdk appletvos \
         -configuration Release \
+        CODE_SIGNING_ALLOWED=NO \
         build
