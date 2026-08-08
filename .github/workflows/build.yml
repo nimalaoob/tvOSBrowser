@@ -1,4 +1,4 @@
-name: Check Project
+name: Check Scheme
 
 on:
   workflow_dispatch:
@@ -11,8 +11,6 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v4
 
-    - name: Show files
+    - name: Show scheme
       run: |
-        pwd
-        ls -la
-        find . -name "*.xcodeproj"
+        xcodebuild -list -project _Project/Browser.xcodeproj
