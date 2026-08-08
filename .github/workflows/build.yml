@@ -1,0 +1,24 @@
+name: Build tvOSBrowser
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: macos-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+
+    - name: List files
+      run: ls -la
+
+    - name: Build
+      run: |
+        xcodebuild \
+        -project Project/Browser.xcodeproj \
+        -scheme Browser \
+        -sdk appletvos \
+        -configuration Release \
+        build
