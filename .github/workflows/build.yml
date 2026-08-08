@@ -20,3 +20,15 @@ jobs:
         -configuration Release \
         CODE_SIGNING_ALLOWED=NO \
         build
+
+    - name: Package IPA
+      run: |
+        mkdir Payload
+        cp -r ~/Library/Developer/Xcode/DerivedData/*/Build/Products/Release-appletvos/Browser.app Payload/
+        zip -r Browser.ipa Payload
+
+    - name: Upload IPA
+      uses: actions/upload-artifact@v4
+      with:
+        name: tvOSBrowser-IPA
+        path: Browser.ipa
