@@ -11,14 +11,16 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v4
 
-    - name: List files
-      run: ls -la
+    - name: Show files
+      run: |
+        ls -la
+        find . -name "*.xcodeproj"
 
     - name: Build
       run: |
         xcodebuild \
-        -project Project/Browser.xcodeproj \
-        -scheme Browser \
+        -project xxx.xcodeproj \
+        -scheme xxx \
         -sdk appletvos \
         -configuration Release \
         build
